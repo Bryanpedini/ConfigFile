@@ -8,16 +8,16 @@ import java.util.logging.Logger;
 
 /**
  * @author Bryan Pedini
- * @version A_1.0
+ * @version A_1.1
  */
 public class Global_Configs {
     private final ArrayList<String> KEYS = new ArrayList();
     private final ArrayList<String> VALUES = new ArrayList();
-    private final String CONFIG_PATH = "server.properties";
+    public static String config_path = "server.properties";
     
     public Global_Configs() {
         try {
-            ArrayList<String> tmp = new File(this.CONFIG_PATH).read();
+            ArrayList<String> tmp = new File(config_path).read();
             for (String str : tmp) {
                 this.KEYS.add(str.substring(0, str.indexOf("=")));
                 this.VALUES.add(str.substring(str.indexOf("=")+1));
@@ -35,7 +35,6 @@ public class Global_Configs {
      * @throws it.bryanpedini.dev.ConfigFile.server.exceptions.UninitializedObjectException
      */
     public String read(String key) throws UninitializedObjectException {
-        //if(this.CONFIG_PATH == null || this.KEYS.isEmpty() || this.VALUES.isEmpty()) throw new UninitializedObjectException();
         return this.VALUES.get(this.KEYS.indexOf(key));
     }
 }

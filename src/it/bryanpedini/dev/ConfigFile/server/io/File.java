@@ -13,7 +13,7 @@ import java.util.logging.Logger;
 
 /**
  * @author Bryan Pedini
- * @version A_1.0
+ * @version A_1.1
  */
 public class File {
     private java.io.File file;
